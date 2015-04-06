@@ -1,6 +1,6 @@
 <h1>Editar Produto</h1></br>
 
-<%= form_for @product do |f| %>
+<%= form_for @product, :html => { :multipart => true } do |f| %>
   <p>
     <%= f.label :code, "Código do Produto:" %><br>
     <%= f.text_field :code %>
@@ -12,9 +12,9 @@
   </p>
 
    <p>
-    <%= f.label :image, "Endereço da imagem:" %><br>
-    <%= f.text_field :image %>
-  </p>
+    <%= f.label :image, "Imagem:" %><br>
+    <%= f.file_field :image %>
+   </p>
 
   <p>
     <%= f.label :price, "Preço:" %><br>

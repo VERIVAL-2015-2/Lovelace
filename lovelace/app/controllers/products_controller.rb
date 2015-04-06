@@ -26,8 +26,10 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
       if @product.update(product_params)
         redirect_to @product, notice: 'Produto alterado com sucesso!'
+      else
         render :edit
       end
   end
@@ -39,6 +41,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-  	params.require(:product).permit(:code, :name, :image, :price, :stock, :description, :details)
+  	params.require(:product).permit(:code, :name, :price, :stock, :description, :details, :image)
   end
 end
