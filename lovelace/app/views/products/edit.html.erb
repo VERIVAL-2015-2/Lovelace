@@ -1,0 +1,45 @@
+<h1>Editar Produto</h1></br>
+
+<%= form_for @product do |f| %>
+  <p>
+    <%= f.label :code, "Código do Produto:" %><br>
+    <%= f.text_field :code %>
+  </p>
+ 
+  <p>
+    <%= f.label :name, "Nome do Produto:" %><br>
+    <%= f.text_field :name %>
+  </p>
+
+   <p>
+    <%= f.label :image, "Endereço da imagem:" %><br>
+    <%= f.text_field :image %>
+  </p>
+
+  <p>
+    <%= f.label :price, "Preço:" %><br>
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <%= f.label :stock, "Quantidade em Estoque:" %><br>
+    <%= f.text_field :stock %>
+  </p>
+
+  <p>
+    <%= f.label :description, "Descrição:" %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :details, "Ficha Técnica:" %><br>
+    <%= f.text_area :details %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Editar", class: "btn btn-primary"%>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @product %> |
+<%= link_to 'Volar', products_path %>
