@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+<<<<<<< HEAD
 	validates :code, presence: true,
 					 numericality: true, 
 	                 uniqueness: true
@@ -27,4 +28,6 @@ class Product < ActiveRecord::Base
     					  content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
     validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+=======
+>>>>>>> cb037401a93e5056e41723d55de30c8655e4ca39
 end
