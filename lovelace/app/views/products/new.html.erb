@@ -1,6 +1,20 @@
 <h1>Adicionar Produto</h1></br>
 
 <%= form_for @product, :html => { :multipart => true } do |f| %>
+
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "erro") %> foram encontrados:
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+         <% end %>
+       </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :code, "Código do Produto:" %><br>
     <%= f.text_field :code %>
