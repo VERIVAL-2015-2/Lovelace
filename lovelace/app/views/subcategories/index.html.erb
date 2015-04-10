@@ -1,0 +1,15 @@
+<h1>Listing subcategories</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+ 
+  <% @subcategory.each do |subcategory| %>
+    <tr>
+      <td><%= subcategory.name %></td>
+      <td><%= subcategory.description %></td>
+    </tr>
+  <% end %>
+</table>
