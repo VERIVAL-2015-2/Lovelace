@@ -1,15 +1,16 @@
-<h1>Listing subcategories</h1>
- 
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th colspan="2"></th>
   </tr>
  
   <% @subcategory.each do |subcategory| %>
     <tr>
       <td><%= subcategory.name %></td>
       <td><%= subcategory.description %></td>
+      <td><%= link_to 'Show', subcategory_path(subcategory) %></td>
+      <td><%= link_to 'Edit', edit_subcategory_path(subcategory) %></td>
     </tr>
   <% end %>
 </table>

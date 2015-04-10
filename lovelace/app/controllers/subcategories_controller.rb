@@ -9,14 +9,31 @@ class SubcategoriesController < ApplicationController
 	end
 
 	def new
-		
+		@subcategory = Subcategory.new
+	end
+
+	def edit
+  		@subcategory = Subcategory.find(params[:id])
 	end
 
 	def create
 		@subcategory = Subcategory.new(subcategory_params)
  
-  		@subcategory.save
-  		redirect_to @subcategory
+  		if @subcategory.save
+			redirect_to @subcategory
+		else
+			render 'new'
+		end
+	end
+
+	def update
+	  @subcategory = Subcategory.find(params[:id])
+	 
+	  if @subcategory.update(subcategory_params)
+	    redirect_to @subcategory
+	  else
+	    render 'edit'
+	  end
 	end
 
 	private
