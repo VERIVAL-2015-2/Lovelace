@@ -36,6 +36,13 @@ class SubcategoriesController < ApplicationController
 	  end
 	end
 
+	def destroy
+	  @subcategory = Subcategory.find(params[:id])
+	  @subcategory.destroy
+	 
+	  redirect_to subcategories_path
+	end
+
 	private
   		def subcategory_params
     		params.require(:subcategory).permit(:name, :description)
