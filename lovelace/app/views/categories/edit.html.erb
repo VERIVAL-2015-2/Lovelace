@@ -1,0 +1,45 @@
+<%= form_for :category, url: category_path(@category), method: :patch do |f| %>
+
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@category.errors.count, "erro") %> foram encontrados:
+      </h2>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+         <% end %>
+       </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <b>Editar Categoria</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <ul><%= f.label :name %></ul>
+      <ul><%= f.text_field :name, :class=>"form-control"%></ul>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="form-group">
+      <ul><%= f.label :description %></ul>
+      <ul><%= f.text_area :description, :class=>"form-control", :rows=>"3"%></ul>
+    </div>
+  </div> 
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <ul><%= f.submit ' Salvar', class: "btn btn-success" %>
+      <%= link_to ' Voltar', categories_path, class: "btn btn-info glyphicon glyphicon-repeat" %></ul>
+    </div>
+  </div>
+ 
+<% end %>
