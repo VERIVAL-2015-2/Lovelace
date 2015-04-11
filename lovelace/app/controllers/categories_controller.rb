@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
 
-
     def index
 		@category = Category.all
 	end
@@ -29,7 +28,7 @@ class CategoriesController < ApplicationController
 
 	def update
     @category = Category.find(params[:id])
-      if @category.update(product_params)
+      if @category.update(category_params)
         redirect_to @category, notice: 'Categoria alterada com sucesso!'
       else
         render :edit
@@ -37,6 +36,7 @@ class CategoriesController < ApplicationController
   end
 
 	def destroy
+		@category = Category.find(params[:id])
 		@category.destroy
 			redirect_to categories_url, notice: 'Categoria deletada com sucesso!'
 	end
