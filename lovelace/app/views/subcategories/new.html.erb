@@ -1,17 +1,45 @@
-<%= form_for :subcategory, url: subcategories_path do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= form_for @subcategory do |f| %>
 
-<%= link_to 'Back', subcategories_path %>
+  <% if @subcategory.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@subcategory.errors.count, "erro") %> foram encontrados:
+      </h2>
+      <ul>
+        <% @subcategory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+         <% end %>
+       </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <b>Editar Subategoria</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <ul><%= f.label :name %></ul>
+      <ul><%= f.text_field :name, :class=>"form-control"%></ul>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="form-group">
+      <ul><%= f.label :description %></ul>
+      <ul><%= f.text_area :description, :class=>"form-control", :rows=>"3"%></ul>
+    </div>
+  </div> 
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <ul><%= f.submit ' Salvar', class: "btn btn-success" %> 
+      <%= link_to ' Voltar', subcategories_path, class: "btn btn-info glyphicon glyphicon-repeat" %></ul>
+    </div>
+  </div>
+ 
+<% end %>
