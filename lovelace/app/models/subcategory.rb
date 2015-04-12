@@ -1,9 +1,11 @@
 class Subcategory < ActiveRecord::Base
 
-	validates :name, presence: true, 
-	                 length: {maximum:  100}
+	validates :name, 
+			    presence: true, 
+				uniqueness: true,
+	            length: {maximum:  100}
 
 	validates :description,  
-	                        length: {maximum:  150}
+				length: {maximum:  150}
 
 end
