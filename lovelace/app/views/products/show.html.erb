@@ -6,8 +6,8 @@
       <li><font face="Zapf Chancery"><h1 class="fixed-top">[<%= @product.code %>] - <%= @product.name %></h1></font></li>
     </ul>
     <ul class="nav nav-pills pull-right">
-      <li><%= link_to ' Editar', edit_product_path(@product), class: "btn btn-warning glyphicon glyphicon-pencil" %></li>
-      <li><%= link_to ' Deletar', product_path, method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-remove" %></li>
+      <li><%= link_to '', edit_product_path(@product), class: "btn btn-warning glyphicon glyphicon-pencil" %></li>
+      <li><%= link_to '', product_path, method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-trash" %></li>
       <li><%= link_to ' Voltar', products_path, class: "btn btn-info glyphicon glyphicon-repeat" %></li>
     </ul>
   </nav>
