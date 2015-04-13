@@ -4,6 +4,14 @@ one:
   name: MyString
   description: MyString
 
-two:
-  name: MyString
-  description: MyString
+#two:
+#  name: MyString
+#  description: MyString
+
+olhos:
+  name: Olhos
+  description: Produtos de maquiagem específicos para os olhos 
+
+labios:
+  name: Lábios
+  description: Produtos de maquiagem específicos para os lábios
