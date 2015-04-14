@@ -1,13 +1,35 @@
-<p>
-  <strong>Name:</strong>
-  <%= @subcategory.name %>
-</p>
- 
-<p>
-  <strong>Description:</strong>
-  <%= @subcategory.description %>
-</p>
+<b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
 
-<%= link_to 'Back', subcategories_path %>
-<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
-<%= link_to 'Back', subcategories_path %>
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-left">
+      <li><font face="Zapf Chancery"><h1 class="fixed-top">Subcategorias</h1></font></li>
+    </ul>
+  </nav>
+</div>
+<p></p><br>
+
+ 
+  <div class="table-responsive" >
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+      <tr>
+        <td><p><%= @subcategory.name %></p></td>
+        <td><p><%= @subcategory.description %></p></td>
+        <td><p><%= link_to '', edit_subcategory_path(@subcategory), class: "btn btn-warning glyphicon glyphicon-pencil" %>
+        <%= link_to '', subcategory_path(@subcategory), method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-trash" %></p></td>
+      </tr>   
+    </table>   
+  </div>
+
+<div class="col-md-4">
+    <div class="form-group">
+      <%= link_to ' Voltar', subcategories_path, class: "btn btn-info glyphicon glyphicon-repeat" %></ul>
+    </div>
+</div>
