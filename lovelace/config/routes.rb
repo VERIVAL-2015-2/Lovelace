@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   get 'products/new'
 
+  get 'subcategories/new'
+
   get 'welcome/homepage'
+  
   resources :products
+
+  resources :subcategories
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
