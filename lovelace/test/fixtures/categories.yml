@@ -1,13 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-
-#two:
-#  name: MyString
-#  description: MyString
-
 olhos:
   name: Olhos
   description: Produtos de maquiagem específicos para os olhos 
