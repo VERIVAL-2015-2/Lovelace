@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
 
+	belongs_to :subcategory
+
 	validates :code, presence: true,
 					 numericality: true, 
 	                 uniqueness: true
