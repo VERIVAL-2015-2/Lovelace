@@ -28,7 +28,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test  "should show products" do
     # Reuse the @article instance variable from setup
-    get :show, params: { code: @product.code }
+    get :show, params: { id: @product. }
     assert_response :success
   end
 
