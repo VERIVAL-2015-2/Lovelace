@@ -1,44 +1,50 @@
 <section id="cart_items">
 	<div class="container">
-		<div class="breadcrumbs">
+		<div>
 			<ol class="breadcrumb">
 			  <li><a href="/">Home</a></li>
+			  <!-- Mudar pro nome do produto selecionado -->
+			  <li><a href="/">@products.name</a></li>
 			  <li class="active">Carrinho de Compras</li>
 			</ol>
 		</div>
 		<div class="table-responsive cart_info">
 			<table class="table table-condensed">
-				<thead>
-					<tr class="cart_menu">
-						<td class="image">Item</td>
+				<thead><b>
+					<tr class="cart_menu" align="middle">
+						<td class="image">ITEM</td>
 						<td class="description"></td>
-						<td class="price">Preço</td>
-						<td class="quantity">Quantidade</td>
-						<td class="total">Total</td>
+						<td class="price">PREÇO</td>
+						<td class="quantity">QUANTIDADE</td>
+						<td class="total">TOTAL</td>
 						<td></td>
 					</tr>
-				</thead>
+				</b></thead>
 				<tbody>
 					<% @products.each do |product| %>
 					<tr>
-						<td class="cart_product">
+						<td class="cart_product" align="middle">
 							<a><%= image_tag(product.image.url(:medium)) %></a>
 						</td>
 						<td class="cart_description">
 							<h4><b><%= product.name %></b></h4>
 							<p><%= product.code %></p>
 						</td>
-						<td class="cart_price">
+						<td class="cart_price" align="middle">
 							<p><%= product.price %></p>
 						</td>
-						<td class="cart_quantity">
-							<div class="cart_quantity_button">
-								<a class="cart_quantity_up" href=""> + </a>
-								<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="on" size="2">
-								<a class="cart_quantity_down" href=""> - </a>
+						<td align="middle">
+							<div>
+								<button type="button" class="btn btn-danger btn-number glyphicon glyphicon-minus"  data-type="minus" data-field="quantity">
+							    </button>
+								<input min="1" max="100" type="number" id="quantity" name="quantity" value="1"/>
+									<style>#quantity { padding:6px; width:60px; border: 1px solid #555; }</style>
+								</input>
+								<button type="button" class="btn btn-success btn-number glyphicon glyphicon-plus" data-type="plus" data-field="quantity">
+							    </button>
 							</div>
 						</td>
-						<td class="cart_total">
+						<td class="cart_total" align="middle">
 							<p class="cart_total_price"><%= product.price %></p>
 						</td>
 						<td class="cart_delete">
