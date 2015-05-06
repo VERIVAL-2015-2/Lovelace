@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   get 'subcategories/new'
 
+ 
+
   get 'welcome/homepage'
-  
+  match 'about', to: 'about#about', via: 'get'
+   
   resources :products
   resources :categories
-
   resources :subcategories
 
   # The priority is based upon order of creation: first created -> highest priority.

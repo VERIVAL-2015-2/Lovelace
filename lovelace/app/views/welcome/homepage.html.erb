@@ -78,11 +78,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="header_btm">
 		<div class="menu">
 			<ul>
-				<li class="active"><a href="index.html">Home</a></li>						
+				<li class="active"><a href="homepage.html">Home</a></li>						
 				<li><a href="products.html">Produtos</a></li>
 				<li><a href="about.html">Blog</a></li>
 				<li><a href="index.html">Páginas</a></li>
-				<li><a href="blog.html">Sobre</a></li>
+				<li><a href="about.html.erb">Sobre</a></li>
 				<li><a href="contact.html">Contato</a></li>
 				<div class="clear"></div>
 			</ul>
@@ -92,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<nav id="menu-left">
 			<ul>
-				<li><a href="index.html">Home</a></li>
+				<li><a href="homepage.html">Home</a></li>
 				<li><a href="products.html">Produtos</a></li>
 				<li><a href="about.html">Blog</a></li>
 				<li><a href="index.html">Páginas</a></li>
@@ -256,63 +256,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<a href="#">Mostrar Tudo</a>
 		<div class="clear"></div>
 	</div>
+	
 	<!-- start grids_of_3 -->
-	<div class="grids_of_3">
-		<div class="grid1_of_3">
-			<a href="details.html">
-				<img src="assets/pic1.jpg" alt=""/>
-				<h3>even & odd</h3>
-				<span class="price">R$145,99</span>
-			</a>
-		</div>
-		<div class="grid1_of_3">
-			<a href="details.html">
-				<img src="assets/pic2.jpg" alt=""/>
-				<h3>buffalo decollete</h3>
-				<span class="price">R$185,99</span>
-				<span class="price1 bg">Em Promoção</span>
-			</a>
-		</div>
-		<div class="grid1_of_3">
-			<a href="details.html">
-				<img src="assets/pic3.jpg" alt=""/>
-				<h3>even & odd</h3>
-				<span class="price">R$145,99</span>
-			</a>
-		</div>
-		<div class="clear"></div>
+	<div class="grids_of_3">	
+		<% @cont = 0%>
+		<% @products.each do |product|%>
+			<div class="grid1_of_3">				
+				<% if @cont < 3 %>	 
+				<% @cont = @cont+1 %> 			
+				<a href="show.html">
+					<%= link_to image_tag(product.image.url(:medium)), product %>
+					<h3><%= product.name %></h3>
+					<span class = "price"> R$<%= product.price %></span>
+	  			<% end %>	
+	  			</a>	  
+			</div>
+		<% end %>
 	</div>
+	<div class="clear"></div>
 	<div class="top_main">
-		<h2>best sellers of the month</h2>
-		<a href="#">show all</a>
+		<h2>Mais vendidos</h2>
+		<a href="#">Mostrar Tudo</a>
 		<div class="clear"></div>
 	</div>
+
+
 	<!-- start grids_of_3 -->
-	<div class="grids_of_3">
-		<div class="grid1_of_3">
-			<a href="details.html">
-				<img src="assets/pic4.jpg" alt=""/>
-				<h3>buffalo decollete</h3>
-				<span class="price">$145,99</span>
-			</a>
-		</div>
-		<div class="grid1_of_3">
-			<a href="details.html">
-				<img src="assets/pic5.jpg" alt=""/>
-				<h3>even & odd</h3>
-				<span class="price">$185,99</span>
-			</a>
-		</div>
-		<div class="grid1_of_3">
-			<a href="details.html">
-				<img src="assets/pic6.jpg" alt=""/>
-				<h3>buffalo decollete</h3>
-				<span class="price">$145,99</span>
-				<span class="price1 bg1">out of stock</span>
-			</a>
-		</div>
-		<div class="clear"></div>
+	<div class="grids_of_3">	
+		<% @cont = 0%>
+		<% @products.each do |product|%>
+			<div class="grid1_of_3">				
+				<% if @cont < 3 %>	 
+				<% @cont = @cont+1 %> 			
+				<a href="show.html">
+					<%= link_to image_tag(product.image.url(:medium)), product %>
+					<h3><%= product.name %></h3>
+					<span class = "price"> R$<%= product.price %></span>
+	  			<% end %>	
+	  			</a>	  
+			</div>
+		<% end %>
 	</div>
+		
+	<div class="clear"></div>
+</div>
 	<div class="clear"></div>
 	<!-- start grids_of_2
 	<div class="grids_of_2">

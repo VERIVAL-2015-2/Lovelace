@@ -487,12 +487,12 @@ h4.style{
 }
 .grid1_of_3 h3{
 	border-top: 1px solid #EBEBEB;
-	padding: 15px;
-	font-size: 1.2em;
+	padding: 20px;
+	font-size: 1em;
 	color: #000000;
 	-webkit-text-stroke: 0.2px;
 	text-shadow: 0 1px 0 #ffffff;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .price{
 	background: #DD006E;
@@ -500,8 +500,8 @@ h4.style{
 	font-size: 0.8725em;
 	padding: 25px 12px;
 	position: absolute;
-	bottom: 0px;
-	left: 10px;
+	bottom: 300px;
+	left: 0px;
 }
 .price1{
 	font-size: 0.8725em;
@@ -510,7 +510,7 @@ h4.style{
 	position: absolute;
 	top: 0px;
 	right: 10px;
-	text-transform:uppercase;
+	text-transform:uppercase
 }
 .price1.bg{
 	background: #242424;
