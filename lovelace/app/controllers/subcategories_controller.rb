@@ -6,7 +6,7 @@ class SubcategoriesController < ApplicationController
 
 	def show
 		@subcategory = Subcategory.find(params[:id])
-		@products = subcategory.products
+		#@products = subcategory.products
 	end
 
 	def new
