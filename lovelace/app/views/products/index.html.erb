@@ -1,5 +1,12 @@
 <b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
 
+<div>
+  <%= form_tag products_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
 <div class="header clearfix">
   <nav>
     <ul class="nav nav-pills pull-left">
