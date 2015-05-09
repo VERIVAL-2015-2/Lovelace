@@ -12,9 +12,9 @@
 </div>
 <p></p><br>
 
-<div class="row">
+<div class="grids_of_3">>
   <% @products.each do |product| %>
-  <div class="col-lg-3">
+  <div class="grid1_of_3">
       <p align="middle"><%= link_to image_tag(product.image.url(:medium)), product %></p>
       <b><p align="middle"><%= product.name %></p></b>
       <p align="middle"><%= product.code %></p>

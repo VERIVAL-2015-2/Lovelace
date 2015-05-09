@@ -498,10 +498,10 @@ h4.style{
 	background: #DD006E;
 	color: #ffffff;
 	font-size: 0.8725em;
-	padding: 25px 12px;
+	padding: 15px 10px;
 	position: absolute;
-	bottom: 300px;
-	left: 0px;
+	bottom: 250px;
+	left: -10px;
 }
 .price1{
 	font-size: 0.8725em;
@@ -807,12 +807,13 @@ h4.style{
 	color: #DD006E;
 }
 .copy{
-	float: left;
+	text-align: center;
 }
 .copy p{
 	color: #7D7D7D;
 	font-size: 0.8725em;
 	line-height: 1.8em;
+	text-align: center;
 	-webkit-text-stroke: 0.5px;
 }
 .copy p a{

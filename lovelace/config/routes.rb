@@ -3,11 +3,14 @@ Rails.application.routes.draw do
 
   get 'subcategories/new'
 
- 
+  get 'welcome/listofproducts' 
 
   get 'welcome/homepage'
-  match 'about', to: 'about#about', via: 'get'
-   
+  match 'about', to: 'welcome#about', via: 'get'
+  match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
+  match 'details', to: 'welcome#details', via: 'get'
+
+
   resources :products
   resources :categories
   resources :subcategories
