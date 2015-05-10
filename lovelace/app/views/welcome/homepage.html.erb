@@ -134,7 +134,7 @@
         <div class="main">
 	        <div class="top_main">
 		        <h2>Novidades</h2>
-		        <a href="/listofproducts">Mostrar Tudo</a>
+		        <a href="/products_catalogs">Mostrar Tudo</a>
 		        <div class="clear"></div>
 	        </div>
 	
@@ -142,7 +142,7 @@
 	        <div class="grids_of_3">	
 		        <% @products.each do |product|%>
     			<div class="grid1_of_3">							
-    				<%= link_to image_tag(product.image.url(:medium)), product %>
+    				<%= link_to image_tag(product.image.url(:medium)), controller: "products_catalogs", action: "show", id: product %>
     				<h3><%= product.name %></h3>
     				<span class = "price"> R$ <%= product.price %></span>
     			</div>
@@ -160,7 +160,7 @@
         	<div class="grids_of_3">	
         		<% @products.each do |product|%>
         		<div class="grid1_of_3">							
-        			<%= link_to image_tag(product.image.url(:medium)), product %>
+        			<%= link_to image_tag(product.image.url(:medium)), controller: "products_catalogs", action: "show", id: product %>
         			<h3><%= product.name %></h3>
         			<span class = "price"> R$ <%= product.price %></span>	  
         		</div>
