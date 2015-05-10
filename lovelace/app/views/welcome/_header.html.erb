@@ -5,9 +5,11 @@
 			<div class="logo">
 				<a href="/"><img src="assets/lovelace-logo2.png"/></a>
 			</div>
+			
 			<div class="log_reg">
 				<ul>
 					<% if current_user %>
+						<li><a href="../users/edit">Editar Perfil</a></li>
 						<li><a href="../users/sign_out">Sair</a> </li>
 					<% else %>
 						<li><a href="../users/sign_in">Entrar</a> </li>
@@ -17,6 +19,7 @@
 					<% end %>
 				</ul>
 			</div>	
+			
 			<div class="web_search">
 		 		<form>
 					<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
