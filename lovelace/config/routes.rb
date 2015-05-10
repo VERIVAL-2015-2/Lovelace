@@ -6,11 +6,17 @@ Rails.application.routes.draw do
 
   get 'subcategories/new'
 
+  get 'welcome/listofproducts' 
+
   get 'welcome/homepage'
-  
+  match 'about', to: 'welcome#about', via: 'get'
+  match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
+  match 'details', to: 'welcome#details', via: 'get'
+  match 'users/sign_out' => "devise/sessions#destroy", via: 'get'
+
+
   resources :products
   resources :categories
-
   resources :subcategories
 
   # The priority is based upon order of creation: first created -> highest priority.
