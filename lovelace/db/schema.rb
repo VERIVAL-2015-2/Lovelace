@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150410111954) do
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.integer  "code",               limit: 4
@@ -32,11 +33,13 @@ ActiveRecord::Schema.define(version: 20150410111954) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+  end
 
   create_table "subcategories", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
 
 end
