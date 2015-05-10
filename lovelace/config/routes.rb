@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   
   get 'products/new'
 
   get 'subcategories/new'
 
+  get 'welcome/listofproducts' 
+
   get 'welcome/homepage'
-  
+  match 'about', to: 'welcome#about', via: 'get'
+  match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
+  match 'details', to: 'welcome#details', via: 'get'
+
+
   resources :products
   resources :categories
-
   resources :subcategories
 
   # The priority is based upon order of creation: first created -> highest priority.
