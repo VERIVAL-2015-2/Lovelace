@@ -4,14 +4,6 @@ class WelcomeController < ApplicationController
   	@products = Product.all
   end
 
-  def listofproducts
-    @products = Product.all
-  end
-
-  def details
-    
-  end
-
   /def fresherproducts
   	@product = Product.all
   	time = 0

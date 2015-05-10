@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
-  get 'products/new'
-
-  get 'subcategories/new'
-
-  get 'welcome/listofproducts' 
 
   get 'welcome/homepage'
-  match 'about', to: 'welcome#about', via: 'get'
-  match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
-  match 'details', to: 'welcome#details', via: 'get'
-
+  get 'products/new'
+  get 'categories/new'
+  get 'subcategories/new'
 
   resources :products
   resources :categories
   resources :subcategories
+  resources :products_catalogs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
