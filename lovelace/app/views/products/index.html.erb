@@ -1,23 +1,30 @@
-<b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
-
-<div class="header clearfix">
-  <nav>
-    <ul class="nav nav-pills pull-left">
-      <li><font face="Zapf Chancery"><h1 class="fixed-top">Produtos</h1></font></li>
-    </ul>
-    <ul class="nav nav-pills pull-right">
-      <li><%= link_to ' Adicionar', new_product_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
-    </ul>
-  </nav>
-</div>
-<p></p><br>
-
-<div class="row">
-  <% @products.each do |product| %>
-  <div class="col-lg-3">
-      <p align="middle"><%= link_to image_tag(product.image.url(:medium)), product %></p>
-      <b><p align="middle"><%= product.name %></p></b>
-      <p align="middle"><%= product.code %></p>
+<% if can? :create, Product %>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-left">
+        <li><font face="Zapf Chancery"><h1 class="fixed-top">Produtos</h1></font></li>
+      </ul>
+      <ul class="nav nav-pills pull-right">
+        <% if can? :create, Product %>
+          <li><%= link_to ' Adicionar', new_product_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
-  <% end %>
-</div>
+  <p></p><br>
+
+  <div class="row">
+    <% @products.each do |product| %>
+    <div class="col-lg-3">
+        <p align="middle"><%= link_to image_tag(product.image.url(:medium)), product %></p>
+        <b><p align="middle"><%= product.name %></p></b>
+        <p align="middle"><%= product.code %></p>
+    </div>
+    <% end %>
+  </div>
+<% else %>
+  <div>
+    <h3>Erro</h3>
+    <li><a href="/">Voltar</a></li>
+  </div>
+<% end %>

@@ -1,76 +1,83 @@
-<%= form_for @product, :html => { :multipart => true } do |f| %>
+<% if can? :create, Product %>
+  <%= form_for @product, :html => { :multipart => true } do |f| %>
 
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@product.errors.count, "erro") %> foram encontrados:
-      </h2>
-      <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-         <% end %>
-       </ul>
-    </div>
-  <% end %>
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@product.errors.count, "erro") %> foram encontrados:
+        </h2>
+        <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+           <% end %>
+         </ul>
+      </div>
+    <% end %>
 
-  <div class="col-md-12">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <b>Novo Produto</b>
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <b>Novo Produto</b>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-3">
-    <div class="form-group">
-      <ul><%= f.label :code, "Código do Produto:" %><br></ul>
-      <ul><%= f.text_field :code, :class=>"form-control" %></ul>
+    <div class="col-md-3">
+      <div class="form-group">
+        <ul><%= f.label :code, "Código do Produto:" %><br></ul>
+        <ul><%= f.text_field :code, :class=>"form-control" %></ul>
+      </div>
+      <div class="form-group">
+        <ul><%= f.label :image, "Imagem:" %><br></ul>
+        <ul><%= f.file_field :image %></ul>
+      </div>
+      <div class="form-group">
+        <ul><%= f.label :price, "Preço:" %><br></ul>
+        <ul><%= f.text_field :price, :class=>"form-control" %></ul>
+      </div>
     </div>
-    <div class="form-group">
-      <ul><%= f.label :image, "Imagem:" %><br></ul>
-      <ul><%= f.file_field :image %></ul>
-    </div>
-    <div class="form-group">
-      <ul><%= f.label :price, "Preço:" %><br></ul>
-      <ul><%= f.text_field :price, :class=>"form-control" %></ul>
-    </div>
-  </div>
 
-  <div class="col-md-8">
-    <div class="form-group">
-      <ul><%= f.label :name, "Nome do Produto:" %><br></ul>
-      <ul><%= f.text_field :name, :class=>"form-control" %></ul> 
+    <div class="col-md-8">
+      <div class="form-group">
+        <ul><%= f.label :name, "Nome do Produto:" %><br></ul>
+        <ul><%= f.text_field :name, :class=>"form-control" %></ul> 
+      </div>
+      <div class="form-group">
+        <ul><br></ul>
+        <ul></ul>
+        <ul><br></ul>
+        <ul></ul>
+      </div>
     </div>
-    <div class="form-group">
-      <ul><br></ul>
-      <ul></ul>
-      <ul><br></ul>
-      <ul></ul>
+    <div class="col-md-3">
+      <div class="form-group">
+        <ul><%= f.label :stock, "Quantidade em Estoque:" %><br></ul>
+        <ul><%= f.text_field :stock, :class=>"form-control" %></ul>
+      </div>
     </div>
-  </div>
-  <div class="col-md-3">
-    <div class="form-group">
-      <ul><%= f.label :stock, "Quantidade em Estoque:" %><br></ul>
-      <ul><%= f.text_field :stock, :class=>"form-control" %></ul>
-    </div>
-  </div>
 
-  <div class="col-md-11">
-    <div class="form-group">
-      <ul><%= f.label :description, "Descrição:" %><br></ul>
-      <ul><%= f.text_area :description, :class=>"form-control", :rows=>"3" %></ul>
+    <div class="col-md-11">
+      <div class="form-group">
+        <ul><%= f.label :description, "Descrição:" %><br></ul>
+        <ul><%= f.text_area :description, :class=>"form-control", :rows=>"3" %></ul>
+      </div>
+      <div class="form-group">
+        <ul><%= f.label :details, "Ficha Técnica:" %><br></ul>
+        <ul><%= f.text_area :details, :class=>"form-control", :rows=>"3" %></ul>
+      </div>
     </div>
-    <div class="form-group">
-      <ul><%= f.label :details, "Ficha Técnica:" %><br></ul>
-      <ul><%= f.text_area :details, :class=>"form-control", :rows=>"3" %></ul>
+    <div align="middle">
+      <div class="col-md-6">
+        <ul><%= f.submit 'Adicionar', class: "btn btn-success btn-lg btn-block" %></ul>
+      </div>
+      <div class="col-md-5">
+        </ul><%= link_to ' Voltar', products_path, class: "btn btn-info glyphicon glyphicon-repeat btn-lg btn-block" %></ul>
+      </div>
     </div>
-  </div>
-  <div align="middle">
-    <div class="col-md-6">
-      <ul><%= f.submit 'Adicionar', class: "btn btn-success btn-lg btn-block" %></ul>
-    </div>
-    <div class="col-md-5">
-      </ul><%= link_to ' Voltar', products_path, class: "btn btn-info glyphicon glyphicon-repeat btn-lg btn-block" %></ul>
-    </div>
+  <% end %>
+<% else %>
+  <div>
+    <h3>Erro</h3>
+    <li><a href="/">Voltar</a></li>
   </div>
 <% end %>

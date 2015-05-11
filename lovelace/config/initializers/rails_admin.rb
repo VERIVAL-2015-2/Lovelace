@@ -4,6 +4,12 @@ RailsAdmin.config do |config|
     redirect_to main_app.root_path unless warden.user.admin == true
   end
 
+  RailsAdmin.config do |config|
+  config.main_app_name = ["Lovelace"]
+  # or somethig more dynamic
+  config.main_app_name = Proc.new { |controller| [ "Lovelace - #{controller.params[:action].try(:titleize)}" ] }
+end
+
   ### Popular gems integration
 
   ## == Devise ==

@@ -1,35 +1,40 @@
-<b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
-
-<div class="header clearfix">
-  <nav>
-    <ul class="nav nav-pills pull-left">
-      <li><font face="Zapf Chancery"><h1 class="fixed-top">Categorias</h1></font></li>
-    </ul>
-    <ul class="nav nav-pills pull-right">
-      <li><%= link_to ' Adicionar', new_category_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
-    </ul>
-  </nav>
-</div>
-<p></p><br>
-
- 
-  <div class="table-responsive" >
-    <table class="table table-striped">
-      </thead>
-        <tr>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
-
-      <% @category.each do |category| %>
-        <tr>
-          <td><p><%= category.name %></p></td>
-          <td><p><%= category.description %></p></td>
-          <td><p><%= link_to '', edit_category_path(category), class: "btn btn-warning glyphicon glyphicon-pencil" %>
-          <%= link_to '', category_path(category), method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-trash" %></p></td>
-        </tr>
-      <% end %>
-    </table>   
+<% if can? :create, Category %>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-left">
+        <li><font face="Zapf Chancery"><h1 class="fixed-top">Categorias</h1></font></li>
+      </ul>
+      <ul class="nav nav-pills pull-right">
+        <li><%= link_to ' Adicionar', new_category_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
+      </ul>
+    </nav>
   </div>
+  <p></p><br>
+
+   
+    <div class="table-responsive" >
+      <table class="table table-striped">
+        </thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <% @category.each do |category| %>
+          <tr>
+            <td><p><%= category.name %></p></td>
+            <td><p><%= category.description %></p></td>
+            <td><p><%= link_to 'Editar', edit_category_path(category) %>
+            <%= link_to 'Excluir', category_path(category), method: :delete, data: { confirm: 'Deseja mesmo deletar?' } %></p></td>
+          </tr>
+        <% end %>
+      </table>   
+    </div>
+<% else %>
+  <div>
+    <h3>Erro</h3>
+    <li><a href="/">Voltar</a></li>
+  </div>
+<% end %>
