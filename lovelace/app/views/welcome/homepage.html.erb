@@ -1,1 +1,174 @@
-<h1>HOMEPAGE</h1>
+<title>Lovelace | Home</title>
+
+<%= render 'header' %>
+
+<!-- start slider -->
+<div class="slider">
+	<!---start-image-slider-->
+	<div class="image-slider">
+	    <div class="wrapper">
+            <div id="ei-slider" class="ei-slider">
+                <ul class="ei-slider-large">
+	       			<li>
+                        <img src="assets/capa2.png" alt="image06"/>
+                    </li>
+                    <li>
+                        <img src="assets/mulher.png" alt="image01" />
+                        <div class="ei-title-right">
+                         	<h3 class="btn">FACE</h3>
+                            <h3 class="active">Conheça nossos produtos para a face!</h3>                         
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/olhos2.png" alt="image02" />
+                        <div class="ei-title-right">
+                           	<h3 class="btn">OLHOS</h3>                               
+                            <h3 class="active">Conheça nossos produtos para olhos! </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/boca3.png" alt="image03"/>
+                        <div class="ei-title-right">
+                          	<h3 class="btn">LÁBIOS</h3>
+                            <h3 class="active">Conheça nossos produtos para lábios!</h3>
+                        </div>
+                    </li>                        
+                    <li>
+                        <img src="assets/brush.jpg" alt="image05"/>
+                        <div class="ei-title-right">
+                           	<h3 class="btn">PINCÉIS</h3>
+                            <h3 class="active">Conheça nossa coleção de pincéis! </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/batom2.png" alt="image07"/>
+                        <div class="ei-title-right">
+                          	<h3 class="btn">ACESSÓRIOS</h3>
+                            <h3 class="active">Conheça os acessórios mais cobiçados! </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/kiits.jpg" alt="image07"/>
+                        <div class="ei-title-right">
+                          	<h3 class="btn">KITS</h3>
+                            <h3 class="active">Super kits pra você ter uma penteadeira completa!</h3>
+                        </div>
+                    </li>
+                </ul><!-- ei-slider-large -->
+
+                <ul class="ei-slider-thumbs">
+                    <li class="ei-slider-element">Current</li>
+				        <li class="hide">
+                      	    <a href="#">
+                       		   <span>Lovelace</span>
+                       	    </a>
+                       		<img src="assets/capa2.png"/>
+                        </li>
+                        <li  class="hide1">
+                       	    <a href="#">
+                      	        <span>Face</span>
+                       	    </a>
+                       		<img src="assets/mulher.png"/>
+                        </li>
+                        <li class="hide1">
+                       	    <a href="#">
+                      		   <span>Olhos</span>
+                       	    </a>
+                       		<img src="assets/olhos2.png"/>
+                        </li>
+                        <li>
+                       	    <a href="#">
+                       		   <span>Lábios</span>
+                       	    </a>
+                      	    <img src="assets/boca3.png"/>
+                        </li>
+                        <li>
+                      	    <a href="#">
+                       		   <span>Pincéis</span>
+                      	    </a>
+                       	    <img src="assets/brush.jpg"/>
+                        </li>
+                        <li>
+                       	    <a href="#">
+                       		   <span>Acessórios</span>
+                       	    </a>
+                      	    <img src="assets/batom2.png"/>
+                        </li>
+                        <li>
+                       	    <a href="#">
+                       		   <span>Kits</span>
+                       	    </a>
+                       	    <img src="assets/kiits.jpg"/>
+                        </li>    
+                    </li> <!-- ei-slider-elements -->           
+                </ul><!-- ei-slider-thumbs -->
+            </div><!-- ei-slider -->
+        </div><!-- wrapper -->
+	</div><!---End-image-slider-->	
+</div>
+
+<!-- start image1_of_3 -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="main1">
+	       <div class="image1_of_3">
+		       <img src="assets/img1.png"/>
+	           <a href="#"><span class="tag">OFERTAS</span></a>
+	        </div>
+	        <div class="image1_of_3">
+		       <img src="assets/img2.png"/>
+		       <a href="#"><span class="tag">MAIS VENDIDOS</span></a>
+	        </div>
+	        <div class="image1_of_3">
+		       <img src="assets/img3.png"/>
+		       <a href="#"><span class="tag">ESPECIAIS</span></a>
+	        </div>
+	        <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<!-- start main -->
+<div class="main_bg">
+    <div class="wrap">
+        <div class="main">
+	        <div class="top_main">
+		        <h2>Novidades</h2>
+		        <a href="/listofproducts">Mostrar Tudo</a>
+		        <div class="clear"></div>
+	        </div>
+	
+	        <!-- start grids_of_3 -->
+	        <div class="grids_of_3">	
+		        <% @products.each do |product|%>
+    			<div class="grid1_of_3">							
+    				<%= link_to image_tag(product.image.url(:medium)), product %>
+    				<h3><%= product.name %></h3>
+    				<span class = "price"> R$ <%= product.price %></span>
+    			</div>
+		        <% end %>
+	        </div>
+	        <div class="clear"></div>
+
+	        <div class="top_main">
+		        <h2>Mais vendidos</h2>
+		        <a href="#">Mostrar Tudo</a>
+		        <div class="clear"></div>
+	        </div>
+
+        	<!-- start grids_of_3 -->
+        	<div class="grids_of_3">	
+        		<% @products.each do |product|%>
+        		<div class="grid1_of_3">							
+        			<%= link_to image_tag(product.image.url(:medium)), product %>
+        			<h3><%= product.name %></h3>
+        			<span class = "price"> R$ <%= product.price %></span>	  
+        		</div>
+                <% end %>
+        	</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<%= render 'footer' %>
