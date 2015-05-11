@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   public
   def index
-    @products = Product.all
+    @products = Product.search(params[:search])
   end
 
   def new

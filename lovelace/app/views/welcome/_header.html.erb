@@ -21,10 +21,10 @@
 			</div>	
 			
 			<div class="web_search">
-		 		<form>
-					<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-					<input type="submit" value=" " />
-				</form>
+				<%= form_tag products_path, :method => 'get' do %>
+					<%= text_field_tag :search, params[:search] %>
+				    <input type="submit" value=" " />
+  				<% end %>
 	    	</div>						
 			<div class="clear"></div>
 		</div>	
