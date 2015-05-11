@@ -1,0 +1,89 @@
+<title>Lovelace | Cadastro</title>
+
+<%= render 'header' %>
+
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+<div class="main">
+	
+	<!-- end registration -->
+	
+	<div class="login_left">
+		<h3>Novo Cliente</h3>
+    	<p>Ao criar uma conta na nossa loja, você será capaz de se mover através do processo de pagamento com maior rapidez, armazenar múltiplos endereços de envio, ver e rastrear seus pedidos e muito mais.</p>
+		<div class="registration_left">
+		<!--<a href="#"><div class="reg_fb"><img src="images/facebook.png" alt=""><i>register using Facebook</i><div class="clear"></div></div></a>-->
+		
+
+		 <div class="registration_form">
+		 <!-- Form -->
+		 <%= form_for @user do |f| %>
+			<form id="registration_form" action="contact.php" method="post">
+				<div>
+					<label>
+
+						<input placeholder="first name:" type="text" tabindex="1" required="" autofocus="">
+					</label>
+				</div>
+				<div>
+					<label>
+						<input placeholder="last name:" type="text" tabindex="2" required="" autofocus="">
+					</label>
+				</div>
+				<!--<div class="sky_form">
+						<ul>
+							<li><label class="radio left"><input type="radio" name="radio" checked=""><i>Male</i></label></li>
+							<li><label class="radio"><input type="radio" name="radio"><i>Female</i></label></li>
+						</ul>
+				</div>-->
+				<div>
+					<label>
+
+    			
+						<%= f.email_field :email, :placeholder => 'E-mail:' %>
+  			
+					</label>
+				</div>
+				<div>
+					<label>						
+    					<% if @validatable %>
+    					<em>(<%= @minimum_password_length %> characters minimum)</em>
+    					<% end %>
+    					<%= f.password_field :password, :placeholder => 'Senha:', autocomplete: "off" %>
+					</label>
+				</div>						
+				<div>
+					<label>
+						<%= f.password_field :password_confirmation, :placeholder => 'Repita a senha:', autocomplete: "off" %>
+					</label>
+				</div>	
+				<div>
+					<%= f.submit "Cadastrar" %>
+				</div>
+				<div class="sky_form">
+					<label class="checkbox"><input type="checkbox" name="checkbox"><i>Eu aceito os <a class="terms" href="#"> termos de serviço.</a> </i></label>
+				</div>
+			</form>
+			<% end %>
+			<!-- /Form -->
+		</div>
+	</div>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<%= render 'footer' %>

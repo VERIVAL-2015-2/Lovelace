@@ -9,11 +9,19 @@ Rails.application.routes.draw do
   get 'welcome/listofproducts' 
 
   get 'welcome/homepage'
+
+  get 'welcome/sign_up'
+
+  get 'welcome/register'
+
   match 'about', to: 'welcome#about', via: 'get'
   match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
   match 'details', to: 'welcome#details', via: 'get'
+  match 'sign_up', to: 'welcome#sign_up', via: 'get'
+  match 'register', to: 'welcome#register', via: 'get'
 
 
+  resources :users
   resources :products
   resources :categories
   resources :subcategories

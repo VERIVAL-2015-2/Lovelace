@@ -12,6 +12,14 @@ class WelcomeController < ApplicationController
     
   end
 
+  def sign_up    
+    
+  end
+
+  def register
+    @user = User.new
+    
+  end
   /def fresherproducts
   	@product = Product.all
   	time = 0
