@@ -1,35 +1,40 @@
-<b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
-
-<div class="header clearfix">
-  <nav>
-    <ul class="nav nav-pills pull-left">
-      <li><font face="Zapf Chancery"><h1 class="fixed-top">Subcategorias</h1></font></li>
-    </ul>
-    <ul class="nav nav-pills pull-right">
-      <li><%= link_to ' Adicionar', new_subcategory_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
-    </ul>
-  </nav>
-</div>
-<p></p><br>
-
- 
-  <div class="table-responsive" >
-    <table class="table table-striped">
-      </thead>
-        <tr>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
-
-      <% @subcategory.each do |subcategory| %>
-        <tr>
-          <td><p><%= subcategory.name %></p></td>
-          <td><p><%= subcategory.description %></p></td>
-          <td><p><%= link_to '', edit_subcategory_path(subcategory), class: "btn btn-warning glyphicon glyphicon-pencil" %>
-          <%= link_to '', subcategory_path(subcategory), method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-trash" %></p></td>
-        </tr>
-      <% end %>
-    </table>   
+<% if can? :create, Subcategory %>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-left">
+        <li><font face="Zapf Chancery"><h1 class="fixed-top">Subcategorias</h1></font></li>
+      </ul>
+      <ul class="nav nav-pills pull-right">
+          <li><%= link_to ' Adicionar', new_subcategory_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
+      </ul>
+    </nav>
   </div>
+  <p></p><br>
+
+   
+    <div class="table-responsive" >
+      <table class="table table-striped">
+        </thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <% @subcategory.each do |subcategory| %>
+          <tr>
+            <td><p><%= subcategory.name %></p></td>
+            <td><p><%= subcategory.description %></p></td>
+              <td><p><%= link_to '', edit_subcategory_path(subcategory) %>
+              <%= link_to '', subcategory_path(subcategory), method: :delete, data: { confirm: 'Deseja mesmo deletar?' }%></p></td>
+          </tr>
+        <% end %>
+      </table>   
+    </div>
+<% else %>
+  <div>
+    <h3>Erro</h3>
+    <li><a href="/">Voltar</a></li>
+  </div>
+<% end %>

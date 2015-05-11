@@ -1,35 +1,40 @@
-<b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
-
-<div class="header clearfix">
-  <nav>
-    <ul class="nav nav-pills pull-left">
-      <li><font face="Zapf Chancery"><h1 class="fixed-top">Categorias</h1></font></li>
-    </ul>
-  </nav>
-</div>
-<p></p><br>
-
- 
-  <div class="table-responsive" >
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
-      <tr>
-        <td><p><%= @category.name %></p></td>
-        <td><p><%= @category.description %></p></td>
-        <td><p><%= link_to '', edit_category_path(@category), class: "btn btn-warning glyphicon glyphicon-pencil" %>
-        <%= link_to '', category_path(@category), method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-trash" %></p></td>
-      </tr>   
-    </table>   
+<% if can? :read, Category %>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-left">
+        <li><font face="Zapf Chancery"><h1 class="fixed-top">Categorias</h1></font></li>
+      </ul>
+    </nav>
   </div>
+  <p></p><br>
 
-<div class="col-md-4">
-    <div class="form-group">
-      <%= link_to ' Voltar', categories_path, class: "btn btn-info glyphicon glyphicon-repeat" %></ul>
+   
+    <div class="table-responsive" >
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+        <tr>
+          <td><p><%= @category.name %></p></td>
+          <td><p><%= @category.description %></p></td>
+          <td><p><%= link_to 'Editar', edit_category_path(@category) %>
+          <%= link_to 'Excluir', category_path(@category), method: :delete, data: { confirm: 'Deseja mesmo deletar?'} %></p></td>
+        </tr>   
+      </table>   
     </div>
-</div>
+
+  <div class="col-md-4">
+      <div class="form-group">
+        <%= link_to ' Voltar', categories_path, class: "btn btn-info glyphicon glyphicon-repeat" %></ul>
+      </div>
+  </div>
+<% else %>
+  <div>
+    <h3>Erro</h3>
+    <li><a href="/">Voltar</a></li>
+  </div>
+<% end %>

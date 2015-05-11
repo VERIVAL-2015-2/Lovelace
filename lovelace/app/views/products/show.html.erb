@@ -1,41 +1,51 @@
-<b><p id="notice", class="alert alert-success"><%= notice %></p></font></b>
+<% if can? :read, Product %>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-left">
+        <li><font face="Zapf Chancery"><h1 class="fixed-top">[<%= @product.code %>] - <%= @product.name %></h1></font></li>
+      </ul>
+      <ul class="nav nav-pills pull-right">
+        <% if can? :update, Product %>
+          <li><%= link_to 'Editar', edit_product_path %></li>
+        <% end %>
+        <% if can? :destroy, Product %>
+          <li><%= link_to 'Apagar', product_path, method: :delete, data: { confirm: 'Deseja mesmo deletar?' } %></li>
+        <% end %>
 
-<div class="header clearfix">
-  <nav>
-    <ul class="nav nav-pills pull-left">
-      <li><font face="Zapf Chancery"><h1 class="fixed-top">[<%= @product.code %>] - <%= @product.name %></h1></font></li>
-    </ul>
-    <ul class="nav nav-pills pull-right">
-      <li><%= link_to '', edit_product_path(@product), class: "btn btn-warning glyphicon glyphicon-pencil" %></li>
-      <li><%= link_to '', product_path, method: :delete, data: { confirm: 'Deseja mesmo deletar?' }, class: "btn btn-danger glyphicon glyphicon-trash" %></li>
-      <li><%= link_to ' Voltar', products_path, class: "btn btn-info glyphicon glyphicon-repeat" %></li>
-    </ul>
-  </nav>
-</div>
-<p></p><br>
+        <li><a href="/">Voltar</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p></p><br>
 
-<div class="col-md-2 col-sm-3 text-center">
-  <%= image_tag @product.image.url(:medium) %>
-</div>
+  <div class="col-md-2 col-sm-3 text-center">
+    <%= image_tag @product.image.url(:medium) %>
+  </div>
 
-<div class="col-xs-9">
-  </p>
-    <strong>Preço: R$</strong>
-    <%= @product.price %>
-  </p>
+  <div class="col-xs-9">
+    </p>
+      <strong>Preço: R$</strong>
+      <%= @product.price %>
+    </p>
 
-  <p>
-    <strong>Quantidade em estoque:</strong>
-    <%= @product.stock %>
-  </p>
+    <p>
+      <strong>Quantidade em estoque:</strong>
+      <%= @product.stock %>
+    </p>
 
-  <p>
-    <strong>Descrição:</strong><br>
-    <%= @product.description %>
-  </p>
+    <p>
+      <strong>Descrição:</strong><br>
+      <%= @product.description %>
+    </p>
 
-  <p>
-    <strong>Ficha Técnica:</strong><br>
-    <%= @product.details %>
-  </p>
-</div>
+    <p>
+      <strong>Ficha Técnica:</strong><br>
+      <%= @product.details %>
+    </p>
+  </div>
+<% else %>
+  <div>
+    <h3>Erro</h3>
+    <li><a href="/">Voltar</a></li>
+  </div>
+<% end %>
