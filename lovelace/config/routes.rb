@@ -17,8 +17,11 @@ Rails.application.routes.draw do
   match 'about', to: 'welcome#about', via: 'get'
   match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
   match 'details', to: 'welcome#details', via: 'get'
+
   match 'sign_up', to: 'welcome#sign_up', via: 'get'
   match 'register', to: 'welcome#register', via: 'get'
+
+  match 'users/sign_out' => "devise/sessions#destroy", via: 'get'
 
 
   resources :users
