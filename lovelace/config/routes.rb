@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   match 'about', to: 'welcome#about', via: 'get'
   match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
   match 'details', to: 'welcome#details', via: 'get'
-
+  match 'welcome_sign_up', to: 'welcome#welcome_sign_up', via: 'get'
+  match 'sign_up', to:  'devise/registrations#new', via: 'get'
 
   resources :products
   resources :categories
