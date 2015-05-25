@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   
+
   get 'products/new'
 
   get 'subcategories/new'
@@ -19,6 +21,9 @@ Rails.application.routes.draw do
   resources :products
   resources :categories
   resources :subcategories
+  resources :baskets
+  resources :admin 
+  resources :line_items
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

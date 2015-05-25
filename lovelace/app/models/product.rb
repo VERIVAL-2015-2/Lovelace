@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
 
+	belongs_to :subcategory
+
 	validates :code, presence: true,
 					 numericality: true, 
 	                 uniqueness: true
@@ -29,6 +31,7 @@ class Product < ActiveRecord::Base
 
     validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+
     def self.search(search)
     	if search
     		where(["name LIKE ?", "%#{search}%"])
@@ -36,4 +39,19 @@ class Product < ActiveRecord::Base
     		all
     	end
     end
+
+    has_many :line_items
+	before_destroy :ensure_not_referenced_by_any_line_item
+	
+	private
+ 	# ensure that there are no line items referencing this product
+ 	def ensure_not_referenced_by_any_line_item
+ 		if line_items.empty?
+ 			return true
+ 		else
+ 			errors.add(:base, 'Linha de item adicionado')
+		 	return false
+ 		end
+ 	end
+
 end

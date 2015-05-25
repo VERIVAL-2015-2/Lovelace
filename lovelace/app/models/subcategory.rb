@@ -1,6 +1,11 @@
 class Subcategory < ActiveRecord::Base
+					  
+	belongs_to :category
 
-	validates :name, presence: true, 
+	has_many :products
+
+	validates :name, presence: true,
+					 uniqueness: true, 
 	                 length: {maximum:  100}
 
 	validates :description,  
