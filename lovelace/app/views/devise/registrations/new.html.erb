@@ -113,8 +113,8 @@
           </label>
         </div>
         <div class="sky_form">
-          Sexo:
-            <ul>
+          
+            <ul class="text">Sexo:
               <li>
                 <label>
                   <%= f.radio_button :sex, 'Feminino'%>
@@ -128,7 +128,25 @@
                 </label>
               </li>
             </ul>
-        </div>                
+        </div> 
+        <div>
+          <label>          
+            <%= f.email_field :email, :placeholder => 'E-mail:' %>        
+          </label>
+        </div>
+        <div>
+          <label>           
+              <% if @validatable %>                    
+              <%= f.password_field :password, :placeholder => 'Senha:', autocomplete: "off" %>
+              <em class="text">(<%= @minimum_password_length %> caracteres no mínimo)</em>
+              <% end %>
+          </label>
+        </div>            
+        <div>
+          <label>
+            <%= f.password_field :password_confirmation, :placeholder => 'Repita a senha:', autocomplete: "off" %>
+          </label>
+        </div>                         
         <div>
           <label>
             <%= f.text_field :ddd, :size=>2, :placeholder => 'DDD:', :class=>"form-control" %>
@@ -139,7 +157,7 @@
             <%= f.telephone_field :phone, :placeholder => 'Telefone:', :class=>"form-control" %>
           </label>
         </div>
-        
+   
         <!--BEGIN ADRESS-->
         <div>
           <label>
@@ -158,18 +176,18 @@
         </div>
         <div>
           <label>
-            <%= f.text_field :city, :placeholder => 'Cidade:', :class=>"form-control" %>     
+            <%= f.text_field :city, :placeholder => 'Cidade:', :class=>"form-control" %>    
           </label>
         </div>
         <div>
-          <label>
+          <label class="text">
           Selecione o estado:
           <%= f.select(:uf, ['Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia', 
             'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
             'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba',
             'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte',
             'Rondônia', 'Rio Grande do Sul', 'Roraima', 'Santa Catarina', 
-            'Sergipe', 'São Paulo', 'Tocantins'])%> 
+            'Sergipe', 'São Paulo', 'Tocantins']) %> 
             </label>
         </div>
         <div>
@@ -177,34 +195,17 @@
             <%= f.text_field :cep, :placeholder => 'CEP:', :class=>"form-control" %>  
           </label>
         </div>
-        <!--END ADRESS-->
-        <div>
-          <label>          
-            <%= f.email_field :email, :placeholder => 'E-mail:' %>        
-          </label>
-        </div>
-        <div>
-          <label>           
-              <% if @validatable %>                    
-              <%= f.password_field :password, :placeholder => 'Senha:', autocomplete: "off" %>
-              <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
-              <% end %>
-          </label>
-        </div>            
-        <div>
-          <label>
-            <%= f.password_field :password_confirmation, :placeholder => 'Repita a senha:', autocomplete: "off" %>
-          </label>
-        </div>  
-        <div>
-          <%= f.submit "Cadastrar" %>
-        </div>
+        <!--END ADRESS-->       
         <div class="sky_form">
           <label class="checkbox"><input type="checkbox" name="checkbox"><i>Eu aceito os <a class="terms" href="#"> termos de serviço.</a> </i></label>
         </div>
-      </form>
+        <div>          
+          <%= f.submit "Cadastrar" %>
+          </a>
+        </div>        
+      </form>      
       <% end %>
-      <!-- /Form -->
+      <!-- /Form -->      
     </div>
   </div>
   </div>
@@ -213,6 +214,9 @@
 </div>
 </div>
 <%= render 'footer' %>
+<%= render 'modal' %>
+
+
 
 
 
