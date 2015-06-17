@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
   end
 
   def details
-    
+     
   end
 
   /def fresherproducts

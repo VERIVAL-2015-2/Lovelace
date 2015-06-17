@@ -38,7 +38,7 @@
       </div>
       <div class="log_reg">
         <ul>
-          <li><a href="/sign_in">Entrar</a> </li>
+          <li><a href="/users/sign_in">Entrar</a> </li>
           <span class="log">  </span>
           <li><a href="/users/sign_up">Cadastrar</a> </li>                   
           <div class="clear"></div>
@@ -88,69 +88,25 @@
 <div class="wrap">
 <div class="main">
   <div class="login_left">
-    <h3>Novo Cliente</h3>
-    <p>Ao criar uma conta na nossa loja, você será capaz de se mover através do processo de pagamento com maior rapidez, armazenar múltiplos endereços de envio, ver e rastrear seus pedidos e muito mais.</p>
+    <h3>Olá visitante</h3>
+    <p>Caso não possua cadastro em nosso site, crie uma conta. Ao criar uma conta na nossa loja, você será capaz de se mover através do processo de pagamento com maior rapidez, armazenar múltiplos endereços de envio, ver e rastrear seus pedidos e muito mais.</p>
+  <!-- start registration -->
+  <div class="registration">    
+  <div class="registration_left">     
     <div class="btn">
       <form>
         <input type="button"  onclick="location.href='/users/sign_up';" value="crie uma conta" />
       </form>
     </div>
   </div>
-  <div class="login_left">
-    <h3>Cliente Registrado</h3>
-    <p>Se você já possui nenhuma conta conosco, por gentileza realize o login.</p>
-  <!-- start registration -->
-  <div class="registration">
-    <!-- [if IE] 
-        < link rel='stylesheet' type='text/css' href='ie.css'/>  
-     [endif] -->  
-      
-    <!-- [if lt IE 7]>  
-        < link rel='stylesheet' type='text/css' href='ie6.css'/>  
-    <! [endif] -->  
-    <script>
-      (function() {
-    
-      // Create input element for testing
-      var inputs = document.createElement('input');
-      
-      // Create the supports object
-      var supports = {};
-      
-      supports.autofocus   = 'autofocus' in inputs;
-      supports.required    = 'required' in inputs;
-      supports.placeholder = 'placeholder' in inputs;
-    
-      // Fallback for autofocus attribute
-      if(!supports.autofocus) {
-        
-      }
-      
-      // Fallback for required attribute
-      if(!supports.required) {
-        
-      }
-    
-      // Fallback for placeholder attribute
-      if(!supports.placeholder) {
-        
-      }
-      
-      // Change text inside send button on submit
-      var send = document.getElementById('register-submit');
-      if(send) {
-        send.onclick = function () {
-          this.innerHTML = '...Sending';
-        }
-      }
-    
-    })();
-    </script>
-  <div class="registration_left">
+  <!-- end registration -->
+
+
+      <h3>Cliente Registrado</h3>
+      <p>Se você já possui conta conosco, por gentileza realize o login.</p>
     <!--<a href="#"><div class="reg_fb"><img src="images/facebook.png" alt=""><i>sign in using Facebook</i><div class="clear"></div></div></a>-->
+    <div class="registration_left">    
      <div class="registration_form">
-
-
      <!-- Form -->
       <form id="registration_form" action="contact.php" method="post">
         <div>
@@ -174,9 +130,9 @@
     </div>
   </div>
   </div>
-  <!-- end registration -->
   </div>
   <div class="clear"></div>
+</div>
 </div>
 </div>
 </div>

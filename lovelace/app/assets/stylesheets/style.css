@@ -1718,7 +1718,7 @@ span.color7{
 }
 .btn_form form input[type="submit"]:hover{
 	background: #DD006E;
-	border: 1px solid #DD006E;
+	border: 10px solid #DD006E;
 }
 /* end description */
 /* start left_content_btm */

@@ -142,7 +142,7 @@
 	        <div class="grids_of_3">	
 		        <% @products.each do |product|%>
     			<div class="grid1_of_3">							
-    				<%= link_to image_tag(product.image.url(:medium)), product %>
+    				<%= link_to image_tag(product.image.url(:medium)) , {:action => 'details', :controller => 'welcome'}, :class => 'dock-item'%>
     				<h3><%= product.name %></h3>
     				<span class = "price"> R$ <%= product.price %></span>
     			</div>
