@@ -1,24 +1,30 @@
-  <div class="header clearfix">
-    <nav>
-      <ul class="nav nav-pills pull-left">
-        <li><font face="Zapf Chancery"><h1 class="fixed-top">Produtos</h1></font></li>
-      </ul>
-      <ul class="nav nav-pills pull-right">
-        <% if can? :create, Product %>
-          <li><%= link_to ' Adicionar', new_product_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
-        <% end %>
-        <li><a href="/">Voltar</a></li>
-      </ul>
-    </nav>
-  </div>
-  <p></p><br>
+<%= render 'header' %>
 
-  <div class="row">
-    <% @products.each do |product| %>
-    <div class="col-lg-3">
-        <p align="middle"><%= link_to image_tag(product.image.url(:medium)), product %></p>
-        <b><p align="middle"><%= product.name %></p></b>
-        <p align="middle"><%= product.code %></p>
+<!-- start main -->
+<div class="main_bg">
+  <div class="wrap">
+    <div class="main">
+    <nav>
+        <ul class="nav nav-pills pull-right">
+          <% if can? :create, Product %>
+            <li><%= link_to ' Adicionar', new_product_path, class: "btn btn-success glyphicon glyphicon-plus" %></li>
+          <% end %>
+        </ul>
+    </nav>
+      <!-- start grids_of_3 -->
+      <div class="grids_of_3">  
+        <% @products.each do |product|%>
+        <div class="grid1_of_3">        
+          <%= link_to image_tag(product.image.url(:medium)), product %>
+          <h3><%= product.name %></h3>
+          <span class = "price"> R$ <%= product.price %></span>
+          </div>
+        <% end %>
+      </div>
+      <div class="clear"></div>
     </div>
-    <% end %>
   </div>
+</div>
+
+<%= render 'footer' %>
+
