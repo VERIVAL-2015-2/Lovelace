@@ -1728,12 +1728,13 @@ span.color7{
 /* start tabs */
 .tabs {
     position: relative;
-	margin: 40px auto;
+    width: 100%;
+	margin: 20px auto;
 }
 .tabs input {
 	position: absolute;
 	z-index: 1000;
-	width: 33.33333%;
+	width: 30%;
 	height: 44px;
 	left: 0px;
 	top: 0px;
@@ -1743,10 +1744,10 @@ span.color7{
 	cursor: pointer;
 }
 .tabs input#tab-2{
-	left: 33.33333%;
+	left: 30%;
 }
 .tabs input#tab-3{
-	left: 66.33333%;
+	left: 60%;
 }
 .tabs label {
 	cursor: pointer;
@@ -1758,7 +1759,7 @@ span.color7{
 	padding: 0 40px;
 	float: left;
 	display: block;
-	width: 23.5333%;
+	width: 26.1%;
 	color:#999999;
 	font-weight: normal;
 	text-transform: capitalize;
