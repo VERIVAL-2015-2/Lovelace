@@ -1,9 +1,11 @@
 class Product < ActiveRecord::Base
 
 	belongs_to :subcategory
+	has_many :line_items
+	before_destroy :ensure_not_referenced_by_any_line_item
 
 	validates :code, presence: true,
-					 numericality: true, 
+					 numericality: {:greater_than_or_equal_to => 0.0}, 
 	                 uniqueness: true
 
 	validates :name, presence: true, 
@@ -39,9 +41,6 @@ class Product < ActiveRecord::Base
     		all
     	end
     end
-
-    has_many :line_items
-	before_destroy :ensure_not_referenced_by_any_line_item
 	
 	private
  	# ensure that there are no line items referencing this product
@@ -49,7 +48,7 @@ class Product < ActiveRecord::Base
  		if line_items.empty?
  			return true
  		else
- 			errors.add(:base, 'Linha de item adicionado')
+ 			errors.add(:base, 'Existe linha de item')
 		 	return false
  		end
  	end

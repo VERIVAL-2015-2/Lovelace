@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
   get 'subcategories/new'
 
-  get 'welcome/listofproducts' 
+  get 'welcome/products_catalog' 
 
   get 'welcome/homepage'
   match 'about', to: 'welcome#about', via: 'get'
-  match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
+  match 'products_catalog', to: 'welcome#products_catalog', via: 'get'
   match 'details', to: 'welcome#details', via: 'get'
   match 'welcome_sign_up', to: 'welcome#welcome_sign_up', via: 'get'
   match 'sign_up', to:  'devise/registrations#new', via: 'get'
