@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Lovelace | Cadastro</title>
+<%= render 'header' %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,900,700,500' rel='stylesheet' type='text/css'>
@@ -29,6 +30,7 @@
   </script>
 </head>
 <body>
+
 <!-- start header -->
 <div class="top_bg">
   <div class="wrap">
@@ -75,6 +77,7 @@
     <div class="clear"></div>
   </div>
 </div>
+
 <!-- start top_bg -->
 <div class="top_bg">
 <div class="wrap">
@@ -137,9 +140,9 @@
         <div>
           <label>           
               <% if @validatable %>                    
-              <%= f.password_field :password, :placeholder => 'Senha:', autocomplete: "off" %>
               <em class="text">(<%= @minimum_password_length %> caracteres no mínimo)</em>
               <% end %>
+              <%= f.password_field :password, :placeholder => 'Senha:', autocomplete: "off" %>
           </label>
         </div>            
         <div>
@@ -214,6 +217,7 @@
 </div>
 </div>
 <%= render 'footer' %>
+<<<<<<< HEAD
 
 
 
@@ -228,3 +232,6 @@
 
 
 
+=======
+<%= render 'modal' %>
+>>>>>>> 9874e09ab43341b7073e73dd234bcbff49258043
