@@ -6,6 +6,16 @@ class BasketsController < ApplicationController
   end
 
   def show
+    begin
+      @basket = Basket.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to welcome_url, notice: 'Carrinho inválido'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml { render :xml => @basket }
+      end
+    end
   end
 
   def new
@@ -39,11 +49,13 @@ class BasketsController < ApplicationController
   end
 
   def destroy
+    @basket = current_cart
     @basket.destroy
-
-    redirect_to baskets_url, notice: 'Basket was successfully destroyed.' 
-      
-    end
+    session[:basket_id] = nil
+    respond_to do |format|
+      format.html { redirect_to(welcome_url, :notice => 'Your cart is currently empty') }
+      format.xml { head :ok }
+    end 
   end
 
   private

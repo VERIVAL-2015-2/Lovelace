@@ -17,14 +17,14 @@ class LineItemsController < ApplicationController
 
   def create
     @basket = current_basket
-    product = Product.find(params[:product_id])
-    @line_item = @basket.line_items.build(:product => product)
+    @product = Product.find(params[:product_id])
+    @line_item = @basket.add_product(product.id)
 
     if @line_item.save
       redirect_to @line_item.basket, :notice => 'Linha de item criada com sucesso.'
 
     else
-      ...
+      :notice => 'Linha de item falhou.'
 
     end
   end

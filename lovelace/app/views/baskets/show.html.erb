@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_basket_path(@basket) %> |
-<%= link_to 'Back', baskets_path %>
+<div class="basket_title" >Your Basket</div>
+<table>
+	<% @basket.line_items.each do |item| %>
+ 		<tr>
+			<td><%= item.quantity %>&times;</td>
+			<td><%= item.product.name %></td>
+			<td class="item_price" ><%= number_to_currency(item.total_price) %></td>
+		</tr>
+ 	<% end %>
+
+	<tr class="total_line" >
+		<td colspan="2" >Total</td>
+		<td class="total_cell" ><%= number_to_currency(@basket.total_price) %></td>
+	</tr>
+</table>
+
+<%= button_to 'Esvaziar', @basket, :method => :delete, :confirm => 'Tem certeza?' %> 
