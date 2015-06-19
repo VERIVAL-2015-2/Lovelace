@@ -11,7 +11,7 @@
 				<div class="grid1_of_3">				
 					<%= link_to image_tag(product.image.url(:medium)), product %>
 					<h3><%= product.name %></h3>
-					<span class = "price"> R<%= number_to_currency(product.price) %></span>
+					<span class = "price"><%= number_to_currency(product.price) %></span>
 			  	</div>
 				<% end %>
 			</div>

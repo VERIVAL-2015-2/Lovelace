@@ -2019,8 +2019,11 @@ span.color7{
 		width: 20.3333%;
 	}
 	.price {
-		padding: 24px 6px;
-		font-size: 13px;
+		font-size: 0.8725em;
+		padding: 25px 12px;
+		position: absolute;
+		bottom: 0px;
+		left: 10px;
 	}
 	.grid1_of_3 h3 {
 		font-size: 1em;
