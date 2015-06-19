@@ -70,6 +70,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-i18n (0.12.1)
     erubis (2.7.0)
     execjs (2.5.2)
     faker (1.4.3)
@@ -214,6 +215,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 4.1.0)
   devise
+  devise-i18n
   faker
   jbuilder (~> 2.0)
   jquery-rails
