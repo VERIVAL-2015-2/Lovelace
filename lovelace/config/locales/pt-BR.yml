@@ -241,6 +241,8 @@
       categories: categorias
       subcategories: subcategorias
       products: produtos
+      basket: Carrinho de compra
+      line_item: Linha de Item
     attributes:
       user:
         username: "Nome de usuário"
