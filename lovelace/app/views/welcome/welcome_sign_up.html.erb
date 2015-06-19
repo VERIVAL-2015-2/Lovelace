@@ -5,29 +5,17 @@
 <div class="wrap">
 <div class="main">
   <div class="login_left">
-    <h3>Sou cadastrado</h3>
+    <h3>Sou cadastrado(a)</h3>
+    <p>Já sou cadastrado(a). Desejo entrar.</p>
   <!-- start registration -->
   <div class="registration">
   <div class="registration_left">
     <!-- <a href="#"><div class="reg_fb"><img src="images/facebook.png" alt=""><i>sign in using Facebook</i><div class="clear"></div></div></a> -->
      <div class="registration_form">
      <!-- Form -->
-      <form id="registration_form" action="contact.php" method="post">
-        <div>
-          <label>
-            <input placeholder="email:" type="email" tabindex="3" required="">
-          </label>
-        </div>
-        <div>
-          <label>
-            <input placeholder="senha:" type="password" tabindex="4" required="">
-          </label>
-        </div>            
+      <form id="registration_form" action="/users/sign_in" method="get">          
         <div>
           <input type="submit" value="entrar" id="register-submit">
-        </div>
-        <div class="forget">
-          <a href="/users/password/new">Esqueceu sua senha?</a>
         </div>
       </form>
 

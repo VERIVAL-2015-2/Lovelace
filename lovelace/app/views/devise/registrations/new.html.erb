@@ -7,7 +7,7 @@
   
   <!-- end registration -->
   
-  <div class="login_left">
+  <div class="new_user">
     <h3>Novo Cliente</h3>
       <p>Ao criar uma conta na nossa loja, você será capaz de se mover através do processo de pagamento com maior rapidez, armazenar múltiplos endereços de envio, ver e rastrear seus pedidos e muito mais.</p>
     <div class="registration_left">
@@ -16,8 +16,8 @@
 
      <div class="registration_form">
      <!-- Form -->
+     <%= devise_error_messages! %>
      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
       <form>
         <div>
           <label>
