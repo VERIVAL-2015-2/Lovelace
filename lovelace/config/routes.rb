@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   match 'products_catalog', to: 'welcome#products_catalog', via: 'get'
   match 'welcome_sign_up', to: 'welcome#welcome_sign_up', via: 'get'
   match 'sign_up', to:  'devise/registrations#new', via: 'get'
+  match 'faq', to: 'welcome#faq', via: 'get' 
+  match 'services', to: 'welcome#services', via: 'get' 
+  match 'contact', to: 'welcome#contact', via: 'get' 
 
   resources :products
   resources :categories
