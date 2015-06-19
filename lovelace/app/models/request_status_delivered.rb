@@ -1,0 +1,2 @@
+class RequestStatusDelivered < RequestStatus
+end

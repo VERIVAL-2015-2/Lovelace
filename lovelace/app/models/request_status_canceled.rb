@@ -1,0 +1,2 @@
+class RequestStatusCanceled < RequestStatus
+end

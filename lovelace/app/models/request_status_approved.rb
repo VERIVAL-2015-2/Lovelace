@@ -1,0 +1,2 @@
+class RequestStatusApproved < RequestStatus
+end
