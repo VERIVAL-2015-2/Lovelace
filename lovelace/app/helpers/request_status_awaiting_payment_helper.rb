@@ -1,2 +1,2 @@
-module StatusPedidoRecebidoHelper
+module RequestStatusAwaitingPaymentHelper
 end

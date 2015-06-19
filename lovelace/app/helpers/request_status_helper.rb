@@ -1,2 +1,2 @@
-module StatusPedidoHelper
+module RequestStatusHelper
 end

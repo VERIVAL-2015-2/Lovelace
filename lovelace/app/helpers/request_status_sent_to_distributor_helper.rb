@@ -1,2 +1,2 @@
-module StatusPedidoEmTransporteHelper
+module RequestStatusSentToDistributorHelper
 end
