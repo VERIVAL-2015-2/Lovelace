@@ -57,9 +57,9 @@ pt-BR:
         user:
           attributes:
             email:
-              blank: 'E-mail é obrigatório'
+              blank: 'é obrigatório'
             password:
-              blank: 'Senha é obrigatória'
+              blank: 'é obrigatória'
   admin:
     home:
       name: Home
