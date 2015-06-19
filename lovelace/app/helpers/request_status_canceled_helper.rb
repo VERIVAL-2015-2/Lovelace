@@ -1,0 +1,2 @@
+module RequestStatusCanceledHelper
+end
