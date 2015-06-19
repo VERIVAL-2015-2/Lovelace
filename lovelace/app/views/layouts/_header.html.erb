@@ -12,9 +12,7 @@
 						<li><a href="../users/edit">Editar Perfil</a></li>
 						<li><a href="../users/sign_out">Sair</a> </li>
 					<% else %>
-						<li><a href="../users/sign_in">Entrar</a> </li>
-						<span class="log">  </span>
-						<li><a href="/welcome_sign_up">Cadastrar</a> </li>								   
+						<li><a href="/welcome_sign_up">Entrar ou Cadastrar</a> </li>						  
 						<div class="clear"></div>
 					<% end %>
 				</ul>
@@ -39,17 +37,15 @@
 				<li><a href="/products_catalog">Catálogo de Produtos</a></li>
 				<li><a href="/request">Meus pedidos</a></li>
 				<li><a href="/services">Serviços</a></li>
-				<li><a href="/services">FAQ</a></li>
+				<li><a href="/faq">FAQ</a></li>
 				<li><a href="/contact">Fale Conosco</a></li>
 			</ul>
 		</div>
 		<div class="header_right">
 			<ul>
-				<li><a href="#"><i  class="cart"></i><span>0</span></a></li>
+				<li><a href="/baskets"><i  class="cart"></i><span>0</span></a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
 	</div>
 </div>
-
-<%= yield %>
