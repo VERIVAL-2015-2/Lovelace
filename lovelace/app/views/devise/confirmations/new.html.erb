@@ -1,16 +1,38 @@
-<h2>Resend confirmation instructions</h2>
+<title>Reenviar informações</title>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+<div class="main">
+  
+  <!-- end registration -->
+  
+  <div class="login_left_unique">
+    <h3>Não recebeu as informações?</h3>
+    <div class="registration_left">
+    <!--<a href="#"><div class="reg_fb"><img src="images/facebook.png" alt=""><i>register using Facebook</i><div class="clear"></div></div></a>-->
+    
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+     <div class="registration_form">
+     <!-- Form -->
+     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  	 <%= devise_error_messages! %>
+      <form id="registration_form">
+        <div>
+          <label>
+            <%= f.text_field :email, :placeholder => 'Email:', :class=>"form-control" %>
+          </label>
+        </div>           
+        <div>
+          <%= f.submit "Reenviar informações" %>
+        </div>
+     <% end %>
+      <!-- /Form -->      
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
   </div>
-<% end %>
+  <div class="clear"></div>
+</div>
+</div>
+</div>
 
-<%= render "devise/shared/links" %>
