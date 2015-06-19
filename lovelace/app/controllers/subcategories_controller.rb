@@ -6,6 +6,7 @@ class SubcategoriesController < ApplicationController
 
 	def show
 		@subcategory = Subcategory.find(params[:id])
+		@products = subcategory.products
 	end
 
 	def new
@@ -20,7 +21,7 @@ class SubcategoriesController < ApplicationController
 		@subcategory = Subcategory.new(subcategory_params)
  
   		if @subcategory.save
-			redirect_to @subcategory
+			redirect_to @subcategory, notice: 'Subcategoria criada com sucesso!'
 		else
 			render 'new'
 		end
@@ -30,7 +31,7 @@ class SubcategoriesController < ApplicationController
 	  @subcategory = Subcategory.find(params[:id])
 	 
 	  if @subcategory.update(subcategory_params)
-	    redirect_to @subcategory
+	    redirect_to @subcategory, notice: 'Subcategoria alterada com sucesso!'
 	  else
 	    render 'edit'
 	  end
@@ -40,7 +41,7 @@ class SubcategoriesController < ApplicationController
 	  @subcategory = Subcategory.find(params[:id])
 	  @subcategory.destroy
 	 
-	  redirect_to subcategories_path
+	  	redirect_to subcategories_url, notice: 'Subcategoria deletada com sucesso!'
 	end
 
 	private

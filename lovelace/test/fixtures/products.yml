@@ -1,19 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+kit_lapis:
   id: 1
-  name: MyString
-  #image: MyString
-  price: 1.5
-  stock: 1
-  description: MyText
-  details: MyText
+  code: 201234
+  name: Kit 12 Lápis M.N
+  price: 45.0
+  stock: 12
+  description: Conjuto com 12 lápis de cores lindas que pode ser usado para delinear olhos e boca
+  details: Possui várias cores
 
-two:
+kit_pinceis:
   id: 2
-  name: MyString
-  #image: MyString
-  price: 1.5
-  stock: 1
-  description: MyText
-  details: MyText
+  code: 128945
+  name: Kit com 7 Pinceis Hello Kitty
+  price: 45.0
+  stock: 20
+  description: Conjuto com 7 pincéis para maquiagem completa
+  details: Possui 7 pincéis

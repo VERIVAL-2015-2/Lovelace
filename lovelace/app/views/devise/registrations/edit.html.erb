@@ -1,39 +1,134 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<title>Editar perfil</title>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+<div class="main">
+  
+  <div class="new_user">
+    <h3>Editar perfil</h3>
+    <div class="registration_left">
+    <!--<a href="#"><div class="reg_fb"><img src="images/facebook.png" alt=""><i>register using Facebook</i><div class="clear"></div></div></a>-->
+    
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+     <div class="registration_form">
+     <!-- Form -->
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+     <%= devise_error_messages! %>
+      <form>
+        <div>
+          <label>
+            <%= f.text_field :name, :placeholder => 'Nome Completo:', :class=>"form-control" %>       
+          </label>
+        </div>
+        <div>
+          <label>
+            <%= f.text_field :userName, :placeholder => 'Nome de usuário:', :class=>"form-control" %>
+          </label>
+        </div>
+        <div class="sky_form">
+          
+            <ul class="text">Sexo:
+              <li>
+                <label>
+                  <%= f.radio_button :sex, 'Feminino'%>
+                  Feminino
+                </label>
+              </li>
+              <li>
+                <label>
+                  <%= f.radio_button :sex, 'Masculino' %>
+                  Masculino
+                </label>
+              </li>
+            </ul>
+        </div> 
+        <div>
+          <label>          
+            <%= f.email_field :email, :placeholder => 'E-mail:' %>        
+          </label>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Esperando confirmação de: <%= resource.unconfirmed_email %></div>
+        <% end %>
+        <div>
+          <label>           
+              <%= f.password_field :password, :placeholder => 'Senha:', autocomplete: "off" %> <i>(Deixe em branco caso não queira alterá-la)</i><br />
+          </label>
+        </div>            
+        <div>
+          <label>
+            <%= f.password_field :password_confirmation, :placeholder => 'Repita a senha:', autocomplete: "off" %>
+          </label>
+        </div>
+        <div>
+          <label>
+            <%= f.password_field :current_password, :placeholder => 'Senha atual:', autocomplete: "off" %> <i>(Necessitamos de sua senha para confirmação de alteração dos dados)</i><br />
+          </label>
+        </div>                         
+        <div>
+          <label>
+            <%= f.text_field :ddd, :size=>2, :placeholder => 'DDD:', :class=>"form-control" %>
+          </label>
+        </div>
+        <div>
+          <label>
+            <%= f.telephone_field :phone, :placeholder => 'Telefone:', :class=>"form-control" %>
+          </label>
+        </div>
+   
+        <!--BEGIN ADRESS-->
+        <div>
+          <label>
+            <%= f.text_field :address, :placeholder => 'Endereço:', :class=>"form-control" %>
+          </label>
+        </div>       
+        <div>
+          <label>
+            <%= f.text_field :complement, :placeholder => 'Complemento:', :class=>"form-control" %>      
+          </label>
+        </div>
+        <div>
+          <label>
+            <%= f.text_field :bairro, :placeholder => 'Bairro:', :class=>"form-control" %>   
+          </label>
+        </div>
+        <div>
+          <label>
+            <%= f.text_field :city, :placeholder => 'Cidade:', :class=>"form-control" %>    
+          </label>
+        </div>
+        <div>
+          <label class="text">
+          Selecione o estado:
+          <%= f.select(:uf, ['Selecione uma UF', 'Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia', 
+            'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
+            'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba',
+            'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte',
+            'Rondônia', 'Rio Grande do Sul', 'Roraima', 'Santa Catarina', 
+            'Sergipe', 'São Paulo', 'Tocantins']) %> 
+            </label>
+        </div>
+        <div>
+          <label>
+            <%= f.text_field :cep, :placeholder => 'CEP:', :class=>"form-control" %>  
+          </label>
+        </div>
+        <!--END ADRESS-->
+        <div>          
+          <%= f.submit "Cadastrar" %>
+          </a>
+        </div>               
+      </form>      
+      <% end %>
+      <div class="forget">
+        <p>Insatisfeito? <%= button_to "Cancelar minha conta", registration_path(resource_name), method: :delete, data: { confirm: "Tem certeza?" } %></p>
+      </div>
+      <!-- /Form -->      
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <div class="clear"></div>
+</div>
+</div>
+</div>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="basket_title" >Your Basket</div>
+<table>
+	<% @baskets.each do |item| %>
+ 		<tr>
+			<td><%= item.line_items.quantity %>&times;</td>
+			<td><%= item.line_items.product.name %></td>
+			<td class="item_price" ><%= number_to_currency(item.line_items.total_price) %></td>
+		</tr>
+ 	<% end %>
+
+	<tr class="total_line" >
+		<td colspan="2" >Total</td>
+		<td class="total_cell" ><%= number_to_currency(@basket.total_price) %></td>
+	</tr>
+</table>
+
+<%= button_to 'Esvaziar', @basket, :method => :delete, :confirm => 'Tem certeza?' %> 

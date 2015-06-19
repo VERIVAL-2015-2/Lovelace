@@ -4,28 +4,16 @@ class WelcomeController < ApplicationController
   	@products = Product.all
   end
 
-  def listofproducts
+  def products_catalog
     @products = Product.all
   end
 
-  def details
-    
+  def faq
   end
 
-  /def fresherproducts
-  	@product = Product.all
-  	time = 0
-  	earlierproduct [0, 0, 0]
-  	while |product|
-  		if time > @product.created_at 
-  			earlierproduct[0] = @product.created_at
-  			if earlierproduct[0] > earlierproduct[1]
-  				earlierproduct[1] = earlierproduct [0]  				
-  			elsif earlierproduct[0] > earlierproduct [2]
-  				earlierproduct[2] = earlierproduct[0]
-  			end
+  def services
+  end
 
-  	end
-  */	
-  
+  def contact
+  end
 end

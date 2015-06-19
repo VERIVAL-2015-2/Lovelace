@@ -3,22 +3,31 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   
+
   get 'products/new'
 
   get 'subcategories/new'
 
-  get 'welcome/listofproducts' 
-
+  get 'welcome/products_catalog' 
   get 'welcome/homepage'
-  match 'about', to: 'welcome#about', via: 'get'
-  match 'listofproducts', to: 'welcome#listofproducts', via: 'get'
-  match 'details', to: 'welcome#details', via: 'get'
+
+  get 'products_description/index'
+  get 'products/:id' => 'products_description#show'
+
+  match 'products_catalog', to: 'welcome#products_catalog', via: 'get'
   match 'welcome_sign_up', to: 'welcome#welcome_sign_up', via: 'get'
   match 'sign_up', to:  'devise/registrations#new', via: 'get'
+  match 'faq', to: 'welcome#faq', via: 'get' 
+  match 'services', to: 'welcome#services', via: 'get' 
+  match 'contact', to: 'welcome#contact', via: 'get' 
 
   resources :products
   resources :categories
   resources :subcategories
+  resources :baskets
+  resources :admin 
+  resources :line_items
+  resources :products_description
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

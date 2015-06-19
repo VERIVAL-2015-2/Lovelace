@@ -1,0 +1,85 @@
+<title><%= @product.name %></title>
+<!-- start main -->
+<div class="main_bg">
+	<div class="wrap">
+		<div class="main">
+			<!-- start content -->
+			<div class="single">
+				<!-- start span1_of_1 -->
+				<div class="left_content">
+					<div class="span1_of_1">
+						<!-- start product_slider -->
+						<div class="product-view">
+						    <div class="product-essential">
+						        <div class="product-img-box">
+						    		<div class="more-views">
+				        				<div class="more-views-container">
+								        </div>
+								    </div>
+								    <div class="product-image"> 
+								           	<%= image_tag @product.image.url(:medium) %>
+								        </a>
+								   </div>
+								</div>
+							</div>
+						</div>
+					<!-- end product_slider -->
+					</div>
+					<!-- start span1_of_1 -->
+					<div class="span1_of_1_des">
+				  		<div class="desc1">
+				  			<p id="notice"><%= notice %></p>
+							<h3><%= @product.name %></h3>
+						</div>
+						<p>(código: <%= @product.code %>)</p>
+						<div class="desc1">
+							<h5><%= number_to_currency(@product.price) %></h5>
+							<div class="available">
+								<div class="btn_form">
+									<form>
+										<%= button_to 'Adicionar ao carrinho', line_items_path(:product_id => @product) %>
+									</form>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+			   	 	</div>
+			   	</div>
+			   	<div class="clear"></div>
+			   	<!-- start left content_bottom -->
+			   	<div class="left_content_btm">
+					<!-- start tabs -->
+				   	<section class="tabs">
+				        <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+				        <label for="tab-1" class="tab-label-1">Descrição</label>
+					
+				        <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+				        <label for="tab-2" class="tab-label-2">Ficha Técnica</label>
+
+				        <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+				        <label for="tab-3" class="tab-label-3">Avaliação dos Clientes</label>
+
+					    <div class="clear-shadow"></div>
+						
+				        <div class="content">
+					        <div class="content-1">
+					        	<p class="para top"><%= @product.description %></p>
+								<div class="clear"></div>
+							</div>
+					        <div class="content-2">
+								<p class="para"><%= @product.details %></p>
+							</div>
+							<div class="content-3">
+								<p class="para">Indisponível no momento.</p>
+							</div>
+				        </div>
+					</section>
+				<!-- end tabs -->
+			   	</div>
+			<!-- end left content_bottom -->
+		   	</div>
+	       	<div class="clear"></div>
+		<!-- end content -->
+		</div>
+	</div>
+</div>

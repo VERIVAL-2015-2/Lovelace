@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510224858) do
+
+ActiveRecord::Schema.define(version: 20150618002737) do
 
   create_table "baskets", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,30 +29,30 @@ ActiveRecord::Schema.define(version: 20150510224858) do
   create_table "line_items", force: :cascade do |t|
     t.integer  "product_id", limit: 4
     t.integer  "basket_id",  limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "quantity",   limit: 4, default: 1
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "code",               limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "products", primary_key: "code", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
+    t.integer  "code",               limit: 4   
     t.string   "name",               limit: 255
     t.float    "price",              limit: 24
     t.integer  "stock",              limit: 4
     t.text     "description",        limit: 65535
     t.text     "details",            limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
-  end
-
-  create_table "searches", primary_key: "search_id", force: :cascade do |t|
-    t.integer  "object_id",    limit: 4,   null: false
-    t.string   "text",         limit: 255
-    t.string   "object_class", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "subcategories", force: :cascade do |t|
@@ -74,19 +75,6 @@ ActiveRecord::Schema.define(version: 20150510224858) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                   limit: 255
-    t.string   "userName",               limit: 255
-    t.integer  "cpf",                    limit: 4
-    t.string   "sex",                    limit: 255
-    t.integer  "ddd",                    limit: 4
-    t.integer  "phone",                  limit: 4
-    t.string   "address",                limit: 255
-    t.integer  "number",                 limit: 4
-    t.string   "complement",             limit: 255
-    t.string   "bairro",                 limit: 255
-    t.string   "city",                   limit: 255
-    t.string   "uf",                     limit: 255
-    t.integer  "cep",                    limit: 4
     t.boolean  "admin",                  limit: 1
   end
 

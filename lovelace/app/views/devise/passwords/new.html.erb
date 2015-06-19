@@ -1,16 +1,37 @@
-<h2>Forgot your password?</h2>
+<title>Esqueceu a senha?</title>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+<div class="main">
+  
+  <!-- end registration -->
+  
+  <div class="login_left_unique">
+    <h3>Esqueceu sua senha?</h3>
+    <div class="registration_left">
+    <!--<a href="#"><div class="reg_fb"><img src="images/facebook.png" alt=""><i>register using Facebook</i><div class="clear"></div></div></a>-->
+    
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+     <div class="registration_form">
+     <!-- Form -->
+     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+     <%= devise_error_messages! %>
+      <form id="registration_form">
+        <div>
+          <label>
+            <%= f.text_field :email, :placeholder => 'Email:', :class=>"form-control" %>
+          </label>
+        </div>           
+        <div>
+          <%= f.submit "Solicitar mudança de senha" %>
+        </div>
+     <% end %>
+      <!-- /Form -->      
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="clear"></div>
+</div>
+</div>
+</div>
