@@ -1,0 +1,2 @@
+class RequestStatusAwaitingPayment < RequestStatus
+end

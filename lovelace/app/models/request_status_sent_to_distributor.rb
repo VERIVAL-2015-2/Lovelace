@@ -1,0 +1,2 @@
+class RequestStatusSentToDistributor < RequestStatus
+end
