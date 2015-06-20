@@ -238,11 +238,15 @@
       category: categoria
       subcategory: subcategoria
       product: produto
-      categories: categorias
-      subcategories: subcategorias
-      products: produtos
-      basket: Carrinho de compra
-      line_item: Linha de Item
+      basket: carrinho de compras
+      line_item: linha de item
+      request: pedido
+      request_status: status do pedido
+      request_status_approved: status do pedido aprovado
+      request_status_awaiting_payment: status do pedido aguardando pagamento
+      request_status_canceled: status do pedido cancelado
+      request_status_delivered: status do pedido entregue
+      request_status_sent_to_distributor: status do pedido enviado a distribuidora
     attributes:
       user:
         username: "Nome de usuário"

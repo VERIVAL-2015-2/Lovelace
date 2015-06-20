@@ -6,7 +6,5 @@ class CreateSubcategories < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :subcategories, :category_id
-
   end
 end
