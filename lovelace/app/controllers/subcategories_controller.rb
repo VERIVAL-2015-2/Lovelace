@@ -1,4 +1,5 @@
 class SubcategoriesController < ApplicationController
+	before_action :authenticate_user!, :except => [:index, :new, :create]
 
 	def index
     	@subcategory = Subcategory.all
